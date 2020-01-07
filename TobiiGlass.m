@@ -4,8 +4,12 @@
 % behavoural/EEG task:
 % 2. call functions to operate the glasses;
 % 3. retrieve Tobii status and codes for .json data files in Tobii SD card.
-% See IEEEPupil.m for a running example.
+% See listenPupil.m for a running example.
 % Yue 2018-03-29
+% Calibration changed to dlg instead of input to block in-experiment
+% calibration; Calibration lines updated at the end to allow for several
+% calibrations in one epxeriment
+% Yue 20180703
 
 classdef TobiiGlass
     properties
@@ -96,7 +100,8 @@ classdef TobiiGlass
         % to calibrate certain participant until successful
         function [obj,success] = calib(obj)
             while ~strcmp(obj.TobiiStatus, 'calibrated')
-                calTry = str2double(input('Calibration take: ','s'));
+                answer =inputdlg('Calibration take: ','s');
+                calTry = str2num(answer{1});
                 if calTry > 4 %give up after certain number of tryes
                     disp('Something is very wrong with the eyes...');
                     break;
@@ -120,6 +125,7 @@ classdef TobiiGlass
             obj.codes = setfield(obj.codes, 'calibration', calInfo.ca_id);
             success=1;
             disp('Calibration successful');
+            obj.TobiiStatus = 'another calibration';
         end
         
         % to start the recording
