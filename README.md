@@ -6,3 +6,10 @@ While they provide Python examples, there is no Matlab example scripts to demons
 
 - TobiiGlass.m contains a class object with functions documented in the API, executable in Matlab.
 - listenPupil.m provides a working example of using TobiiGlass class for a simple recording of listeners gaze/pupil size during listening to a BEL English sentence.
+
+# Running
+- add TobiiGlass.m in MATLAB path
+- import TobiiGlass.m in the local script
+`import TobiiGlass`
+- call the functions in TobiiGlass.m from the local script
+`tb = TobiiGlass`
