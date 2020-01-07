@@ -1,4 +1,4 @@
-%% This is a running example of using Tobii Pro Glasses 2 for listening effort research.
+%% This is a running example of using Tobii Pro Glasses 2 for pupillometry experiment.
 %% TobiiGlass.m is imported for glasses-related functions.
 %% In this example:
 %% 1) check Tobii glasses connection
